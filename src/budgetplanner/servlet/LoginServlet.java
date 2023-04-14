@@ -1,40 +1,41 @@
 package budgetplanner.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import budgetplanner.userinteraction.UserIO;
+import budgetplanner.jpa.*;
 
-/**
- * Servlet implementation class LoginServlet
- */
-@WebServlet("/LoginServlet")
+@WebServlet(urlPatterns="/login")
+
 public class LoginServlet extends HttpServlet {
+
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * Default constructor. 
-     */
-    public LoginServlet() {
-        // TODO Auto-generated constructor stub
-    }
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		PrintWriter out = response.getWriter();
+		UserIO userIO = new UserIO();
+		request.getRequestDispatcher("link.html").include(request, response);
+
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
+
+		UtenteJpa utenteJpa = new UtenteJpa();
+		HttpSession session = utenteJpa.login(request, username, password);
+		if (session == null) {
+			out.println("Access not autentificated");
+
+		} else {
+			session.setAttribute("username", username);
+		    request.getRequestDispatcher("login.html").forward(request, response); // Forward to JSP page to redisplay login form with error.
+		}
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
-
 }

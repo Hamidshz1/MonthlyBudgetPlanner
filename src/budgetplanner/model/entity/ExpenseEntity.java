@@ -1,5 +1,5 @@
 package budgetplanner.model.entity;
-
+// bisogna fare i metodi che interagiscono con database come login 
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -57,7 +57,7 @@ public class ExpenseEntity {
 		return s;
 
 	}
-
+	
 	public int getIdExpense() {
 		return idExpense;
 	}
