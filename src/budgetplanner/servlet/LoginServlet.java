@@ -12,7 +12,7 @@ import jakarta.servlet.http.HttpSession;
 import budgetplanner.userinteraction.UserIO;
 import budgetplanner.jpa.*;
 
-@WebServlet(urlPatterns="/login")
+@WebServlet(urlPatterns = "/login")
 
 public class LoginServlet extends HttpServlet {
 
@@ -20,11 +20,10 @@ public class LoginServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-		UserIO userIO = new UserIO();
 		request.getRequestDispatcher("link.html").include(request, response);
-
+		
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 
@@ -34,8 +33,11 @@ public class LoginServlet extends HttpServlet {
 			out.println("Access not autentificated");
 
 		} else {
+			out.println("Access successful");
 			session.setAttribute("username", username);
-		    request.getRequestDispatcher("login.html").forward(request, response); // Forward to JSP page to redisplay login form with error.
+			request.getRequestDispatcher("/profilo").forward(request, response); // Forward to JSP page to redisplay
+																					// login form with error.
+
 		}
 	}
 }

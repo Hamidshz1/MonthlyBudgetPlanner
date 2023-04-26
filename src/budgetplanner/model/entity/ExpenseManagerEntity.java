@@ -9,16 +9,20 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import jakarta.persistence.OneToMany;
 
-// non posso dichiarare una variabile di tipo Expensemanager poi che una classe abstract 
+import jakarta.persistence.Column;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.MappedSuperclass;
+
 @MappedSuperclass
 public abstract class ExpenseManagerEntity {
+	@Column(name ="budget")
 	protected double budget;
+	@OneToMany(mappedBy = "monthlyexpensemanager")
+
 	protected ArrayList<ExpenseEntity> expenses;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,6 +31,7 @@ public abstract class ExpenseManagerEntity {
 	protected int idExpenseManager;
 	
 	protected int idUtente;
+	
 
 //	public ExpenseManagerEntity() {
 //

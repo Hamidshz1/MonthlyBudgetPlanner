@@ -4,13 +4,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 import budgetplanner.connection.ConnectionDb;
 
@@ -76,6 +76,10 @@ public class UtenteEntity {
 		this.idUtente = idUtente;
 //		init(idUtente);
 	}
+	public UtenteEntity(String username2, String password2, String firstName2, String lastName2, String email2,
+			String age2) {
+		// TODO Auto-generated constructor stub
+	}
 	public int getIdUtente() {
 		return idUtente;
 	}
@@ -118,8 +122,17 @@ public class UtenteEntity {
 	public void setAge(Integer age) {
 		this.age = age;
 	}
+	
+
+		
+	
 	public MonthlyExpenseManagerEntity getMonthlyExpenseManager() {
 		return monthlyExpenseManager;
+	}
+	@Override
+	public String toString() {
+		return "UtenteEntity [username=" + username + ", password=" + password + ", firstName=" + firstName
+				+ ", lastName=" + lastName + ", email=" + email + ", age=" + age + "]";
 	}
 	public void setMonthlyExpenseManager(MonthlyExpenseManagerEntity monthlyExpenseManager) {
 		this.monthlyExpenseManager = monthlyExpenseManager;

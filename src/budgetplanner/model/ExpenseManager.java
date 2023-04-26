@@ -29,6 +29,7 @@ public abstract class ExpenseManager {
 
 //	public abstract Months getMese();
 
+
 	public void setBudget(double budget) {
 		this.budget = budget;
 	}
@@ -38,7 +39,7 @@ public abstract class ExpenseManager {
 		expenses.add(expense);
 		checkBudget();
 	}
-
+	
 	public boolean checkBudget() {
 		double totalCost = 0.0;
 		for (Expense expense : expenses) {
@@ -100,7 +101,7 @@ public abstract class ExpenseManager {
 		for (Expense expense : expenses) {
 			System.out.println(expense.toString());
 		}
-
+		
 		
 	}
 

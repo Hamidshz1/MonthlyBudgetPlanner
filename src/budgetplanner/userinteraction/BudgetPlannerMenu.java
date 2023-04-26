@@ -95,7 +95,7 @@ public class BudgetPlannerMenu {
 
 				}
 				break;
-
+				
 			case SET_BUDGET_OPTION:
 				// Fixed: implement setting budget functionality
 				System.out.println("Enter your budget amount:");

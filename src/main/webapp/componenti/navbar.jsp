@@ -1,14 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+<header>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		<div class="container-fluid">
 
-			<a class="navbar-brand" href="#">Expense Planner</a>
+			<a class="navbar-brand" href="#"><i 
+			 class="fa-solid fa-comments-dollar"></i>Expense Planner</a>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
 				aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -28,7 +23,13 @@
 
 			</div>
 		</div>
+	</nav>
+</header>
 
-
-</body>
-</html>
+<style>
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+</style>

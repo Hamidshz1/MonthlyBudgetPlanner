@@ -4,7 +4,7 @@
 	<session-factory>
 		<!-- Set URL -->
 		<property name="hibernate.connection.url">
-			jdbc:mysql://localhost:3306/budgetplanner</property>
+			jdbc:mysql://localhost:3306/monthlybudgetplanner</property>
 		<!-- Set User Name -->
 		<property name="hibernate.connection.username">root</property>
 		<!-- Set Password -->

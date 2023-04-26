@@ -14,7 +14,6 @@ public class UserInterface {
 
 	// la classe userInterface per gestire completamente interazione di un utente
 	// con il sistema
-
 	// metodo login restituisce acceesso ad un utente solo se nome e password
 	// corrispondono
 	public Utente login(String user, String pass) throws SQLException {

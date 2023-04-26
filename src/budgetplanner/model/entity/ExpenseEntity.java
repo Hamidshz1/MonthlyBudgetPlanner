@@ -2,12 +2,15 @@ package budgetplanner.model.entity;
 // bisogna fare i metodi che interagiscono con database come login 
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "expense")
@@ -26,6 +29,8 @@ public class ExpenseEntity {
 	private String bill;
 	
 	@Column(name = "cost")
+	@ManyToOne
+	@JoinColumn(name = "id_expense_manager")
 
 	private double cost;
 

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence>
+	<persistence-unit name="monthlybudgetplanner">
+		<class>ExpenseEntity</class>
+		<class>ExpenseManagerEntity</class>
+		<class>UtenteEntity</class>
+		<class>WeeklyExpenseManagerEntity</class>
+		<properties>
+			<property name="javax.persistence.jdbc.Driver"
+				value="com.mysql.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.url"
+				value="jdbc:mysql://localhost:3306/monthlybudgetplanner" />
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="javax.persistence.jdbc.password"
+				value="password" />
+		</properties>
+	</persistence-unit>
+</persistence>
+
+
