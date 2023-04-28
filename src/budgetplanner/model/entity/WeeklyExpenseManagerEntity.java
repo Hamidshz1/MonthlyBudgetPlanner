@@ -9,14 +9,14 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.Table;
 
 import budgetplanner.model.ExpenseManager;
+
 @Entity
 @Table(name = "weeklyexpensemanager")
 public class WeeklyExpenseManagerEntity extends ExpenseManager {
-    @Column(name="week")
+	@Column(name = "week")
 	private int week;
-	//private ArrayList<Expense> expenses;
-	
-	
+	// private ArrayList<Expense> expenses;
+
 //	public WeeklyExpenseManagerEntity(int idExpenseManager, double weeklyBudget) {
 //		super(idExpenseManager,weeklyBudget);
 //	}

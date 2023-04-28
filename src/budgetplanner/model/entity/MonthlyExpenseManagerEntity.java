@@ -8,16 +8,14 @@ import jakarta.persistence.Table;
 
 import budgetplanner.model.ExpenseManager;
 import budgetplanner.model.Months;
+
 @Entity
 @Table(name = "monthlyexpensemanager")
 public class MonthlyExpenseManagerEntity extends ExpenseManager {
-	@Enumerated(value=EnumType.STRING)
-    @Column(name="month")
+	@Enumerated(value = EnumType.STRING)
+	@Column(name = "month")
 	Months mese;
-	
 
-	
-	
 //	public MonthlyExpenseManagerEntity(int idExpenseManager,double budget, Months month) {
 //		super(idExpenseManager, budget);
 //		this.mese = month;
@@ -35,6 +33,5 @@ public class MonthlyExpenseManagerEntity extends ExpenseManager {
 //		this.mese = mese;
 //	}
 //	
-	
 
 }

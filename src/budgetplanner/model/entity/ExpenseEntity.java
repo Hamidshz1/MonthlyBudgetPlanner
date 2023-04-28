@@ -1,4 +1,5 @@
 package budgetplanner.model.entity;
+
 // bisogna fare i metodi che interagiscono con database come login 
 import java.util.Date;
 
@@ -19,20 +20,24 @@ public class ExpenseEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "expense_id")
 	private int idExpense;
-	
+
 	@Column(name = "date")
 
 	private Date date;
-	
+
 	@Column(name = "bill")
 
 	private String bill;
-	
+
 	@Column(name = "cost")
 	@ManyToOne
 	@JoinColumn(name = "id_expense_manager")
 
 	private double cost;
+	
+	public ExpenseEntity() {
+		
+	}
 
 	public ExpenseEntity(int idExpense, Date date, String bill, double cost) {
 		this.idExpense = idExpense;
@@ -62,13 +67,16 @@ public class ExpenseEntity {
 		return s;
 
 	}
-	
+
 	public int getIdExpense() {
 		return idExpense;
 	}
 
 	public void setIdExpense(int idExpense) {
 		this.idExpense = idExpense;
+		
 	}
+	
+	
 
 }

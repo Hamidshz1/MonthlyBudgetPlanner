@@ -24,20 +24,21 @@ public class LoginServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		request.getRequestDispatcher("link.html").include(request, response);
 		
-		String username = request.getParameter("username");
+		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 
 		UtenteJpa utenteJpa = new UtenteJpa();
-		HttpSession session = utenteJpa.login(request, username, password);
+		HttpSession session = utenteJpa.login(request, email, password);
 		if (session == null) {
 			out.println("Access not autentificated");
 
 		} else {
 			out.println("Access successful");
-			session.setAttribute("username", username);
+			session.setAttribute("username", email);
 			request.getRequestDispatcher("/profilo").forward(request, response); // Forward to JSP page to redisplay
 																					// login form with error.
 
 		}
 	}
 }
+

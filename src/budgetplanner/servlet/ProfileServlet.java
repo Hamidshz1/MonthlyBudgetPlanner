@@ -20,19 +20,19 @@ public class ProfileServlet extends HttpServlet {
 			throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-		request.getRequestDispatcher("link.html").include(request, response);
+//		request.getRequestDispatcher("link.html").include(request, response);
 
 		HttpSession session = request.getSession(false);
 		if (session != null) {
-			String username = (String) session.getAttribute("username");
-			out.print("Hello, " + username + ". You are in your reserved area!");
+			String email = (String) session.getAttribute("email");
+			out.print("Hello, " + email + ". You are in your reserved area!");
 			UtenteEntity utente = (UtenteEntity) session.getAttribute("utente");
 			
 //		UtenteEntity tra prentesi è il Casting perchè il metodo getAttribute ritorna un oggetto di tipo Object
 			out.println(utente.toString());
 		} else {
 			out.print("Hey, smartass! You would like to enter without login, right?");
-			request.getRequestDispatcher("login.html").include(request, response);
+			request.getRequestDispatcher("login.jsp").include(request, response);
 		}
 		out.close();
 	}

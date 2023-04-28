@@ -17,7 +17,7 @@ import budgetplanner.connection.ConnectionDb;
 @Entity
 @Table(name = "utente")
 public class UtenteEntity {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "utente_id")
@@ -47,27 +47,22 @@ public class UtenteEntity {
 	@OneToMany(mappedBy = "userEntity")
 
 	private WeeklyExpenseManagerEntity weeklyExpenseManager;
-	
-	
-	
-	/*public Utente(String email,String password, String firstName, String lastName , Integer age) {
-		super();
-		this.password = password;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		this.age = age;
-	}*/
 
+	/*
+	 * public Utente(String email,String password, String firstName, String lastName
+	 * , Integer age) { super(); this.password = password; this.firstName =
+	 * firstName; this.lastName = lastName; this.email = email; this.age = age; }
+	 */
 
 	public UtenteEntity(int idUtente, String password) throws SQLException {
 		this.password = password;
 		this.idUtente = idUtente;
 //		init(idUtente);
-		
-		
+
 	}
-	public UtenteEntity(int idUtente,String username,String email,String password, String firstName, String lastName , Integer age) throws SQLException {
+
+	public UtenteEntity(int idUtente, String username, String email, String password, String firstName, String lastName,
+			Integer age) throws SQLException {
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -76,93 +71,107 @@ public class UtenteEntity {
 		this.idUtente = idUtente;
 //		init(idUtente);
 	}
+
 	public UtenteEntity(String username2, String password2, String firstName2, String lastName2, String email2,
 			String age2) {
 		// TODO Auto-generated constructor stub
 	}
+
 	public int getIdUtente() {
 		return idUtente;
 	}
+
 	public void setIdUtente(int idUtente) {
 		this.idUtente = idUtente;
 	}
+
 	public String getUsername() {
 		return username;
 	}
+
 	public void setUsername(String username) {
 		this.username = username;
 	}
+
 	public String getPassword() {
 		return password;
 	}
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
 	public String getFirstName() {
 		return firstName;
 	}
+
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
+
 	public String getLastName() {
 		return lastName;
 	}
+
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+
 	public String getEmail() {
 		return email;
 	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 	public Integer getAge() {
 		return age;
 	}
+
 	public void setAge(Integer age) {
 		this.age = age;
 	}
-	
 
-		
-	
 	public MonthlyExpenseManagerEntity getMonthlyExpenseManager() {
 		return monthlyExpenseManager;
 	}
+
 	@Override
 	public String toString() {
 		return "UtenteEntity [username=" + username + ", password=" + password + ", firstName=" + firstName
 				+ ", lastName=" + lastName + ", email=" + email + ", age=" + age + "]";
 	}
+
 	public void setMonthlyExpenseManager(MonthlyExpenseManagerEntity monthlyExpenseManager) {
 		this.monthlyExpenseManager = monthlyExpenseManager;
 	}
+
 	public WeeklyExpenseManagerEntity getWeeklyExpenseManager() {
 		return weeklyExpenseManager;
 	}
+
 	public void setWeeklyExpenseManager(WeeklyExpenseManagerEntity weeklyExpenseManager) {
 		this.weeklyExpenseManager = weeklyExpenseManager;
 	}
 
-	
 //	public void init(int idUtente) throws SQLException {
 //		ConnectionDb db = new ConnectionDb();
 //		setWeeklyBudgetPlanner(db.connectionWeekly(idUtente));
 //		System.out.println(this.weeklyExpenseManager);
 //		setMonthlyExpenseManager(db.connectionMonthly(idUtente));
 //		System.out.println(this.monthlyExpenseManager);
-		
-		
-		
-	}
 
-	/*public void addExpenseManagers(ExpenseManager manager) {
-		monthlyExpenseManager.add(manager);
-	}
-	public void addExpenseManager(ExpenseManagerType type,int idExpenseManager, double budget) {
-		ExpenseManagerFactory factory = new ExpenseManagerFactory();
-		addExpenseManagers(factory.createExpenseManager(type,idExpenseManager, budget));
-	}*/
+}
+
+/*
+ * public void addExpenseManagers(ExpenseManager manager) {
+ * monthlyExpenseManager.add(manager); } public void
+ * addExpenseManager(ExpenseManagerType type,int idExpenseManager, double
+ * budget) { ExpenseManagerFactory factory = new ExpenseManagerFactory();
+ * addExpenseManagers(factory.createExpenseManager(type,idExpenseManager,
+ * budget)); }
+ */
 
 //	public void changePassword(String oldPassword, String newPassword) {
 //		if (password.equals(oldPassword)) {
@@ -223,5 +232,3 @@ public class UtenteEntity {
 //		weeklyExpenseManager.setBudget(amount);
 //		
 //	}
-
-
