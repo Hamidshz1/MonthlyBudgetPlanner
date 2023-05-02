@@ -19,7 +19,7 @@ public class ConnectionDb {
 
 	private static final String URL = "jdbc:mysql://localhost:3306/budgetplanner";
 	private static final String USER = "root";
-	private static final String PASSWORD = "Admin";
+	private static final String PASSWORD = "Admin123";
 
 	public static String getUrl() {
 		return URL;

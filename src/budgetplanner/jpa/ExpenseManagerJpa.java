@@ -37,8 +37,8 @@ public class ExpenseManagerJpa extends HttpServlet {
 		}.getManager();
 	}
 	public MonthlyExpenseManagerEntity getExpenseManager(int id) {
-//		EntityManagerFactory emf = Persistence.createEntityManagerFactory("");
-//		manager = emf.createEntityManager();
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("");
+		manager = emf.createEntityManager();
 //		Configuration configuration = new Configuration();
 //		configuration.configure("hibernate.cfg.xml");
 //		configuration.addAnnotatedClass(ExpenseEntity.class);

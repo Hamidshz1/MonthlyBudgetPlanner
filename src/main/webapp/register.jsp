@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page isELIgnored="false" %>
 
 <!DOCTYPE html>
 <html>
@@ -14,7 +15,7 @@
 }
 </style>
 </head>
-<body class="pg-light">
+<body class="bg-light">
 	<%@include file="componenti/navbar.jsp"%>
 	<div class="container p-5">
 		<style>
@@ -31,8 +32,8 @@
 				<div class="card card-sh">
 					<div class="card-header">
 						<p class="text-center fs-3">Register Form</p>
-						<c:if test="${ not empty msg}">
-							<p>$ {msg}</p>
+						<c:if test="${not empty msg}">
+							<p class="text-center fs-3">${msg}</p>
 							<c:remove var="msg" />
 						</c:if>
 

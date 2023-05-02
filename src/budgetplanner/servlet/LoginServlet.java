@@ -9,10 +9,9 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import budgetplanner.userinteraction.UserIO;
 import budgetplanner.jpa.*;
 
-@WebServlet(urlPatterns = "/login")
+@WebServlet(urlPatterns = "/Login")
 
 public class LoginServlet extends HttpServlet {
 
@@ -23,22 +22,26 @@ public class LoginServlet extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		request.getRequestDispatcher("link.html").include(request, response);
-		
+
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 
 		UtenteJpa utenteJpa = new UtenteJpa();
-		HttpSession session = utenteJpa.login(request, email, password);
-		if (session == null) {
+		
+			HttpSession session = utenteJpa.login(request, email, password);
+			if (session == null) {
+			session.setAttribute("msg", "invalid Emial&password");
+			request.getRequestDispatcher("/MonthltBudgetPlanner/login.jsp").forward(request, response); // Forward to JSP page to redisplay
 			out.println("Access not autentificated");
+			
 
 		} else {
+			session.setAttribute("loginUser", utenteJpa);
+			response.sendRedirect("user/home.jsp");
 			out.println("Access successful");
-			session.setAttribute("username", email);
 			request.getRequestDispatcher("/profilo").forward(request, response); // Forward to JSP page to redisplay
 																					// login form with error.
 
 		}
 	}
 }
-
